@@ -48,7 +48,7 @@ const SignInScreen = ({ navigation }: { navigation: any }) => {
             {touched.email && errors.email && <Text style={styles.errorText}>{errors.email}</Text>}
 
             <TextInput
-              style={styles.input}
+              style={[styles.input, { color: 'black' }]}
               placeholder="Password"
               placeholderTextColor={'black'}
               secureTextEntry
@@ -60,7 +60,7 @@ const SignInScreen = ({ navigation }: { navigation: any }) => {
 
             <Button title="Sign In" onPress={() => handleSubmit()} />
             <TouchableOpacity  style={{marginBlock:15}}>
-            <Button title="Sign Up" onPress={() => navigation.navigate('SignUp')} color="gray" />
+            <Button title="Not Registered? Sign Up" onPress={() => navigation.navigate('Register')} color="green" />
             </TouchableOpacity>
           </>
         )}

@@ -1,6 +1,6 @@
 // src/screens/SignUpScreen.tsx
 import React from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, Alert, TouchableOpacity } from 'react-native';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { registerUser } from '../mockApi';  // Use the mockApi functions
@@ -15,7 +15,7 @@ const SignUpScreen = ({ navigation }: { navigation: any }) => {
     try {
       await registerUser(values.email, values.password);  // Register user
       Alert.alert('Success', 'User registered successfully!');
-      navigation.navigate('SignIn');
+      navigation.navigate('Home');
     } catch (error:any) {
       Alert.alert('Error', error.message || 'Registration failed.');
     }
@@ -42,7 +42,7 @@ const SignUpScreen = ({ navigation }: { navigation: any }) => {
             {touched.email && errors.email && <Text style={styles.errorText}>{errors.email}</Text>}
 
             <TextInput
-              style={styles.input}
+              style={[styles.input, { color: 'black' }]}
               placeholder="Password"
               placeholderTextColor={'black'}
               secureTextEntry
@@ -53,7 +53,9 @@ const SignUpScreen = ({ navigation }: { navigation: any }) => {
             {touched.password && errors.password && <Text style={styles.errorText}>{errors.password}</Text>}
 
             <Button title="Sign Up" onPress={() => handleSubmit()} />
-            <Button title="Go to Sign In" onPress={() => navigation.navigate('SignIn')} color="gray" />
+            <TouchableOpacity  style={{marginBlock:15}}>
+            <Button title="Go to Sign In" onPress={() => navigation.navigate('Home')} color="gray" />
+            </TouchableOpacity>
           </>
         )}
       </Formik>

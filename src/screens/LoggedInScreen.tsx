@@ -19,7 +19,7 @@ const LoggedInScreen = ({ navigation }: { navigation: any }) => {
 
   const handleLogout = async () => {
     await AsyncStorage.removeItem('loggedInUser');
-    navigation.navigate('SignIn');
+    navigation.navigate('Home');
   };
 
   return (
