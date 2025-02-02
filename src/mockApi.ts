@@ -13,7 +13,7 @@ export const registerUser = async (email: string, password: string) => {
 
   if (existingUser) {
     Alert.alert('Error', 'Email already exists');
-    throw new Error('Email already exists');
+    // throw new Error('Email already exists');/
 
   }
 
@@ -51,6 +51,8 @@ export const loginUser = async (email: string, password: string) => {
 };
 
 export const getSalesData = async () => {
+
+
   return [
     { id: '1', name: 'Project X', amount: 2500, date: '2023-07-15', customer: 'John Doe' },
     { id: '2', name: 'Service Package', amount: 4200, date: '2023-07-14', customer: 'Jane Smith' },
@@ -63,3 +65,19 @@ export const getLeadsData = async () => {
     { id: '2', name: 'Globex', status: 'Warm', contact: 'alice@globex.com' },
   ];
 };
+
+
+// const SalesData = async () => {
+//   const SalesData = {
+//     id: '1',
+//     name: 'John Doe',
+//     email: 'john.doe@example.com',
+//   };
+
+//   try {
+//     await AsyncStorage.setItem('user', JSON.stringify(user));  // Convert the object to a string before saving
+//     console.log('Data saved!');
+//   } catch (e) {
+//     console.error('Failed to save data', e);
+//   }
+// };
